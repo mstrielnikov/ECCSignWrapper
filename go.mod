@@ -1,3 +1,3 @@
-module github.com/mstrielnikov/SignWrapperECC
+module github.com/mstrielnikov/ECCSignWrapper
 
 go 1.17
