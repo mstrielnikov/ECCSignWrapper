@@ -47,6 +47,9 @@ func TestAdditionDoubling(t *testing.T) {
 
 	double := Curve.DoubleECPoints(G)
 
+	fmt.Println(sum)
+	fmt.Println(double)
+
 	if !Curve.IsOnCurveCheck(sum) {
 		t.Fatalf("(A + A) point is not on the curve")
 	}
