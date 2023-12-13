@@ -1,6 +1,7 @@
 # ECCWrapper
 
-Wrppaer library which simplifies operations over basic ECC algebra incapsulating `crypto/elliptic` package
+Wrapper library which simplifies operations over basic ECC algebra encapsulating `crypto/elliptic` package.
+Implemented Schnorr signatures in terms of the proposed framework.
 
 # Testing
 
