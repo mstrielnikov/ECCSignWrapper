@@ -44,6 +44,23 @@ func (ec *ECCurve) ScalarMult(scalar *big.Int, point ECPoint) ECPoint {
 	return ECPoint{X: x, Y: y}
 }
 
+// IsOnCurveCheck checks if a given point is on the curve.
+func (ec *ECCurve) IsOnCurveCheck(point ECPoint) bool {
+	return ec.curve.IsOnCurve(point.X, point.Y)
+}
+
+// AddECPoints adds two elliptic curve points and returns the result.
+func (ec *ECCurve) AddECPoints(pointA, pointB ECPoint) ECPoint {
+	x, y := ec.curve.Add(pointA.X, pointA.Y, pointB.X, pointB.Y)
+	return ECPoint{X: x, Y: y}
+}
+
+// DoubleECPoints doubles the given elliptic curve point and returns the result.
+func (ec *ECCurve) DoubleECPoints(point ECPoint) ECPoint {
+	x, y := ec.curve.Double(point.X, point.Y)
+	return ECPoint{X: x, Y: y}
+}
+
 // ECPointToString serializes an ECPoint to a JSON-encoded string.
 func ECPointToString(point ECPoint) string {
 	data, _ := json.Marshal(point)
