@@ -3,7 +3,6 @@ package main
 import (
 	"crypto/elliptic"
 	"fmt"
-	"math/big"
 	"testing"
 )
 
@@ -42,12 +41,19 @@ func TestECCAlgebraEquation(t *testing.T) {
 func TestAdditionDoubling(t *testing.T) {
 	curveParam := elliptic.P256()
 	Curve := NewECCurve(curveParam)
+	G := Curve.BasePointGGet()
 
-	pointA := ECPoint{X: big.NewInt(1), Y: big.NewInt(2)}
+	sum := Curve.AddECPoints(G, G)
 
-	sum := Curve.AddECPoints(pointA, pointA)
+	double := Curve.DoubleECPoints(G)
 
-	double := Curve.DoubleECPoints(pointA)
+	if !Curve.IsOnCurveCheck(sum) {
+		t.Fatalf("(A + A) point is not on the curve")
+	}
+
+	if !Curve.IsOnCurveCheck(double) {
+		t.Fatalf("(2A) point is not on the curve")
+	}
 
 	if !sum.IsEqual(&double) {
 		t.Fatalf("ECC doubling addition test failed")
