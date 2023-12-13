@@ -10,8 +10,9 @@ go test
 ```
 
 # Demo
-<img title="Demo" src="./pics/demo_tests_wrapper.png">
 
-<img src="./pics/plot_btc.png"
-alt="btc stocs price periods"
-style="float: left; margin-right: 10px;" />  
+<img title="Demo" src="./pics/demo_tests_wrapper.png"/>
+
+_______
+
+<img title="Demo" src="./pics/demo_tests_schnorr_sign.png"/>
